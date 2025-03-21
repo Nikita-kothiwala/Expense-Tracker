@@ -25,6 +25,7 @@ import { expenseCategories, transactionTypes } from '@/constants/data'
 import useFetchData from '@/hooks/useFetchData'
 import { orderBy, where } from 'firebase/firestore'
 import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
+import { createOrUpdateTransaction } from '@/services/TransactionService'
 const TransactionModal = () => {
   const { user, updateUserData } = useAuth()
   const router = useRouter()
@@ -72,6 +73,15 @@ const TransactionModal = () => {
    }
 
 console.log("Transaction Data:", transactionData)
+setLoading(true)
+const res = await createOrUpdateTransaction(transactionData)
+
+setLoading(false)
+if(res.success){
+router.back()
+}else{
+  Alert.alert("Transactions",res.msg)
+}
    }
 
   const onDelete = async () => {
