@@ -1,25 +1,19 @@
 import { Alert, Platform, Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { colors, radius, spacingX, spacingY } from '@/constants/theme'
 import { scale, verticalScale } from '@/utils/styling'
-import ScreenWrapper from '@/components/screenWrapper'
 import ModalWrapper from '@/components/ModalWrapper'
 import Header from '@/components/Header'
 import BackButton from '@/components/BackButton'
-import { Image } from "expo-image"
-import { getProfileImage } from '@/services/ImageService'
 import * as Icons from "phosphor-react-native"
 import Typo from '@/components/Typo'
 import Input from '@/components/Input'
-import { TransactionType, UserDataType, WalletType } from '@/types'
+import { TransactionType,  WalletType } from '@/types'
 import Button from '@/components/Button'
 import { useAuth } from '@/contexts/authContext'
-import { updateUser } from '@/services/UserService'
 import { useLocalSearchParams, useRouter } from 'expo-router'
-import * as ImagePicker from 'expo-image-picker';
 import ImageUpload from '@/components/ImageUpload'
-import { createOrUpdateWallet, deleteWallet } from '@/services/WalletService'
-import { verifyBeforeUpdateEmail } from 'firebase/auth'
+import { deleteWallet } from '@/services/WalletService'
 import { Dropdown } from 'react-native-element-dropdown';
 import { expenseCategories, transactionTypes } from '@/constants/data'
 import useFetchData from '@/hooks/useFetchData'
@@ -115,7 +109,11 @@ router.back()
     ])
   }
 
-  const { data: wallets, error: walletError, loading: walletLoading } = useFetchData<WalletType>("wallets", [
+  const { 
+    data: wallets,
+     error: walletError,
+      loading: walletLoading }
+       = useFetchData<WalletType>("wallets", [
     where("uid", "==", user?.uid),
     orderBy("created", "desc")
   ])
@@ -156,12 +154,12 @@ router.back()
           <View style={styles.inputContainer}>
             <Typo size={16} color={colors.neutral200}>Wallet</Typo>
             <Dropdown
-              style={styles.dropdownContainer}
+              style={[styles.dropdownContainer1,{ zIndex: 1000 }]}
               activeColor={colors.neutral700}
               // placeholderStyle={styles.dropdownPlaceholder}
               selectedTextStyle={styles.dropdownSelectedText}
               iconStyle={styles.dropdownIcon}
-              data={wallets.map(wallet => ({
+              data={wallets.map((wallet) => ({
                 label: `${wallet?.name} ($${wallet.amount})`,
                 value: wallet?.id
               }))}
@@ -176,9 +174,13 @@ router.back()
               value={transaction.walletId}
               onChange={item => {
                 setTransaction({ ...transaction, walletId: item.value || "" })
+                console.log("Wallets Data:", wallets);
+
               }}
             />
           </View>
+       
+
 
           {
             transaction.type == "expense" && (
@@ -426,7 +428,7 @@ const styles = StyleSheet.create({
   },
   dropdownItemContainer: {
     borderRadius: radius._15,
-    marginHorizontal: spacingX._7
+    marginHorizontal: spacingY._7
   },
   dropdownIcon: {
     height: verticalScale(30),
@@ -444,6 +446,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 15,
     elevation: 5
-  }
+  },
+  dropdownContainer1: {
+    height: verticalScale(54),
+    borderWidth: 1,
+    paddingHorizontal: spacingY._15,
+    borderColor: colors.neutral300,
+    borderRadius: radius._15,
+    borderCurve: "continuous"
+  },
 
 })
