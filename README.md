@@ -8,24 +8,25 @@ This is an **Expense Tracker Application** built using:
 ---
 
 
+
 ## 📱 App Screenshots
 <p align="center">
-  <img src="./assets/Sca.jpeg" alt="Screenshot 1" width="200"/>
-  <img src="./assets/Scb.jpeg" alt="Screenshot 2" width="200"/>
-  <img src="./assets/Scc.jpeg" alt="Screenshot 3" width="200"/>
-  <img src="./assets/Scd.jpeg" alt="Screenshot 4" width="200"/>
+  <img src="./assets/images/Sca.jpeg" alt="Screenshot 1" width="200"/>
+  <img src="./assets/images/Scb.jpeg" alt="Screenshot 2" width="200"/>
+  <img src="./assets/images/Scc.jpeg" alt="Screenshot 3" width="200"/>
+  <img src="./assets/images/Scd.jpeg" alt="Screenshot 4" width="200"/>
 </p>
 
 <p align="center">
-  <img src="./assets/Scf.jpeg" alt="Screenshot 5" width="200"/>
-  <img src="./assets/Scj.jpeg" alt="Screenshot 6" width="200"/>
-  <img src="./assets/Sck.jpeg" alt="Screenshot 7" width="200"/>
-  <img src="./assets/Scl.jpeg" alt="Screenshot 8" width="200"/>
+  <img src="./assets/images/Scf.jpeg" alt="Screenshot 5" width="200"/>
+  <img src="./assets/images/Scj.jpeg" alt="Screenshot 6" width="200"/>
+  <img src="./assets/images/Sck.jpeg" alt="Screenshot 7" width="200"/>
+  <img src="./assets/images/Scl.jpeg" alt="Screenshot 8" width="200"/>
 </p>
 
 <p align="center">
-  <img src="./assets/SCM.jpeg" alt="Screenshot 9" width="200"/>
-  <img src="./assets/Scn.jpeg" alt="Screenshot 10" width="200"/>
+  <img src="./assets/images/SCM.jpeg" alt="Screenshot 9" width="200"/>
+  <img src="./assets/images/Scn.jpeg" alt="Screenshot 10" width="200"/>
 </p>
 
 
